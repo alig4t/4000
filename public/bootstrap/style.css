@@ -1,0 +1,50 @@
+
+body{
+    background-color: rgba(255, 226, 227, 0.1);
+    direction: rtl;
+}
+
+.mynav{
+    margin-left: auto !important;
+}
+
+.brandlink{
+    color: #212529;
+}
+
+.brandlink:hover{
+    text-decoration: none;
+    color: #d13478;
+
+}
+
+.brandlink span{
+    float: right;
+    margin: 3px 6px;
+}
+
+.operate{
+    color: #d13478;
+}
+.operate:hover{
+    color: #b91818;
+}
+
+.can span{
+    padding: 6px 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.hideword{
+    opacity: 0;
+}
+.hideword:hover{
+    opacity: 1;
+}
+.showword{
+    opacity: 1;
+}
+.hiderow{
+    display: none;
+}
