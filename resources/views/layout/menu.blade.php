@@ -6,13 +6,12 @@
       واژه ضروری انگلیسی  
     </a>
     </h5>
-    <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="#">Features</a>
-      <a class="p-2 text-dark" href="/search">جستجو واژه</a>
-      <a class="p-2 text-dark" href="#">Support</a>
-      <a class="p-2 text-dark" href="#">Pricing</a>
-    </nav>
-    <a class="btn btn-outline-primary" href="#">Sign up</a>
+    <!-- <nav class="my-2 my-md-0 mr-md-3">
+
+       <a class="p-2 text-dark" href="/search">جستجو واژه</a> 
+
+    </nav> -->
+    <a class="btn btn-outline-danger" href="/search">جستجو واژه</a>
   </div>
 
 

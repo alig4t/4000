@@ -11,12 +11,56 @@ class HomeController extends Controller
     
     public function index(Request $request){
         
+
+        // return $request;
+        $Asc_Desc = 'ASC';
+        $orderBy = 'id';
+
         $params['chapter'] = (isset($request['chapter'])) ? $request['chapter'] : 'all';
         $params['test_tik'] = (isset($request['test_tik'])) ? $request['test_tik'] : 'all';
         $params['direction'] = (isset($request['direction'])) ? $request['direction'] : "0";
-        $params['orderby'] = (isset($request['orderby'])) ? $request['orderby'] : "id";
         
-        // return $params;
+        // $params['orderby'] = (isset($request['orderby'])) ? $request['orderby'] : ["id","desc"];
+
+        if(isset($request['orderby'])){
+            if($request['orderby'] == 'idr'){
+                $params['orderby'] = "idr";
+       
+                $Asc_Desc = 'DESC';
+            }else{
+                $params['orderby'] = "id";
+            }
+        }else{
+            $params['orderby']='id';
+        }
+        
+        if(isset($request['orderby'])){
+            switch($request['orderby']){
+                case "id":
+                 $orderBy = 'id';   
+                    break;
+                case "idr":
+                 $orderBy = 'id';   
+                $Asc_Desc = 'DESC';
+                    break;
+                case "eng":
+                 $orderBy = 'eng';   
+                    break;
+                case "rand":
+                 $orderBy = 'rand';   
+                    break;
+                case "per":
+                 $orderBy = 'per';   
+ 
+                    break;
+                default:
+                $orderBy = 'id'; 
+                    
+            }
+        }
+        
+
+        // return $Asc_Desc;
 
         $words = Word::where(function($q) use ($params) {
             
@@ -29,7 +73,7 @@ class HomeController extends Controller
                 }
 
         })
-        ->orderby($params['orderby'],'ASC')
+        ->orderby($orderBy,$Asc_Desc)
         // ->inRandomOrder()
         ->paginate(100);
 
