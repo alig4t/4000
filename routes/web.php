@@ -15,7 +15,7 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
+// Route::get('/', function () {
     // return view('welcome');
     // return 'sss';
 
@@ -48,17 +48,21 @@ Route::get('/', function () {
 
     // $words = Words::all();
     // return $words;
-});
+// });
 
-Route::get('/words/{id}/edit', 'App\Http\Controllers\HomeController@edit');
-Route::patch('/words/{id}/', 'App\Http\Controllers\HomeController@update')->name('word.update');
+Route::get('/words/{id}/edit', 'App\Http\Controllers\HomeController@edit')->middleware('auth');
+Route::patch('/words/{id}/', 'App\Http\Controllers\HomeController@update')->name('word.update')->middleware('auth');
 
-Route::post('/words/{id}/tik/{dir}', 'App\Http\Controllers\HomeController@changeTik');
+Route::post('/words/{id}/tik/{dir}', 'App\Http\Controllers\HomeController@changeTik')->middleware('auth');
 
 
-Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->middleware('auth');
 
 
 
 Route::get('/search', 'App\Http\Controllers\HomeController@search');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

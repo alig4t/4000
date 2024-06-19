@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Word;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -11,6 +12,9 @@ class HomeController extends Controller
     
     public function index(Request $request){
         
+
+        // $user = Auth::user();
+        // dd($user);
 
         // return $request;
         $Asc_Desc = 'ASC';

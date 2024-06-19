@@ -12,6 +12,13 @@
 
     </nav> -->
     <a class="btn btn-outline-danger" href="/search">جستجو واژه</a>
+
+    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    خروج
+</a>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>
   </div>
 
 
