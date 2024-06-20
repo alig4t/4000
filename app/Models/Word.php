@@ -17,5 +17,13 @@ class Word extends Model
         'test_tik'
     ];
 
+    // public function users()
+    // {
+    //     return $this->belongsToMany(User::class, 'user_word');
+    // }
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withPivot('eng_check', 'per_check')->withTimestamps();
+    }
 
 }

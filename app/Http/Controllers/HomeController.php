@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Word;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -12,11 +14,6 @@ class HomeController extends Controller
     
     public function index(Request $request){
         
-
-        // $user = Auth::user();
-        // dd($user);
-
-        // return $request;
         $Asc_Desc = 'ASC';
         $orderBy = 'id';
 
@@ -64,24 +61,22 @@ class HomeController extends Controller
         }
         
 
-        // return $Asc_Desc;
+        $user = Auth::user();
 
-        $words = Word::where(function($q) use ($params) {
-            
-                if($params['chapter']  != 'all'){
-                    $q->where('chapter', $params['chapter']);
-                }
-
-                if($params['test_tik']  != 'all'){
-                    $q->where('test_tik', $params['test_tik']);
-                }
-
-        })
-        ->orderby($orderBy,$Asc_Desc)
-        // ->inRandomOrder()
-        ->paginate(100);
-
-        // return $words->total();
+$words = Word::leftJoin('user_word', function($join) use ($user) {
+                $join->on('words.id', '=', 'user_word.word_id')
+                     ->where('user_word.user_id', '=', $user->id);
+            })
+            ->when($params['chapter'] != 'all', function($query) use ($params) {
+                return $query->where('chapter', $params['chapter']);
+            })
+            ->when($params['test_tik'] != 'all', function($query) use ($params) {
+                return $query->where('user_word.eng_check', $params['test_tik']);
+            })
+            ->select('words.*', 'user_word.eng_check', 'user_word.per_check') // انتخاب ستون‌های مورد نظر از هر دو جدول
+            ->orderBy($orderBy, $Asc_Desc)
+            ->paginate(100);
+        
         return view('index',compact(['words','params']));
 
     }
@@ -90,22 +85,18 @@ class HomeController extends Controller
 
     
     public function search(){
-
         $words = Word::all();
         return view('search',compact(['words']));
-        // return $words;
     }
 
     public function edit($id){
-        // return $id;
         $word = Word::whereId($id)->first();
         return view('edit',compact(['word']));
 
     }
 
     public function update(Request $request,$id){
-        // return $id;
-        // return $id;
+   
         $word = Word::whereId($id)->first();
         $word->update($request->all());
 
@@ -113,19 +104,39 @@ class HomeController extends Controller
     }
 
 
-    public function changeTik($id){
-        $word = Word::findorfail($id);
+    public function changeTik($id,$dir){
 
-        $newStatus = ($word->test_tik == 0) ? 1 : 0;
-        $word->update([
-            'test_tik' => $newStatus,
-        ]);
+        $user = Auth::user();
+        $pivotRecord = $user->words()->wherePivot('word_id', $id)->first();
 
+        if ($pivotRecord) {
+            if($dir=='en'){
+                $newEngCheckValue = $pivotRecord->pivot->eng_check == 1 ? 0 : 1;
+                $user->words()->updateExistingPivot($id, ['eng_check' => $newEngCheckValue]);
+            }else{
+                $newEngCheckValue = $pivotRecord->pivot->per_check == 1 ? 0 : 1;
+                $user->words()->updateExistingPivot($id, ['per_check' => $newEngCheckValue]);
+            }     
+        } else {
+            $newEngCheckValue = 1;
+            if($dir=='en'){
+                $user->words()->attach($id, ['eng_check' => 1]);
+            }else{
+                $user->words()->attach($id, ['per_check' => 1]);
+            }
+
+        }
 
         return response([
             'id' => $id,
-            'status' => $newStatus
+            'status' => $newEngCheckValue,
+            'dir'=>$dir
         ]);
+
+    
     }
+
+
+
 
 }

@@ -117,7 +117,7 @@
                     <td class="align-middle text-center can">
                     
                       @if($params['direction'] == 0)
-                          @if($word->test_tik == 1)
+                          @if($word->eng_check == 1)
                             <span class="badge badge-danger" onclick="changeStatus(this,{{$word->id}},1,'en')">بلد نیستم</span>
                           @else
                           <span class="badge badge-success" onclick="changeStatus(this,{{$word->id}},0,'en')">بلدم</span>
@@ -125,7 +125,7 @@
 
                       @else
 
-                      @if($word->test_fa_tik == 1)
+                      @if($word->per_check == 1)
                       <span class="badge badge-danger" onclick="changeStatus(this,{{$word->id}},1,'fa')">بلد نیستم</span>
                       @else
                       <span class="badge badge-success" onclick="changeStatus(this,{{$word->id}},0,'fa')">بلدم</span>
