@@ -104,9 +104,9 @@
               </tr>
             </thead>
             <tbody>
-                @foreach($words as $word)
+                @foreach($words as $index=>$word)
                 <tr>
-                    <th class="align-middle text-center" scope="row">{{$word->id}}</th>
+                    <th class="align-middle text-center" scope="row">{{$index+1}}</th>
                     <td class="align-middle text-center">{{$word->eng}}</td>
                     <td class="align-middle text-center hideword" onclick="show(this)">{{$word->per}}</td>
                     <td class="align-middle text-center">{{$word->description}}</td>
