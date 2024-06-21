@@ -18,7 +18,8 @@
         </p>
     </div>
 
-    <div class="container border rounded p-4 mb-5 box-shadow shadow-sm" style="background-color: rgba(231, 226, 200, 0.732);border-color:#e5d8b3">
+    <div class="p-3">
+    <div class="container border rounded p-4 mb-5 box-shadow shadow-sm" style="background-color: rgba(231, 226, 200, 0.732);border-color:#e5d8b3; border-bottom:3px solid #cfaf3a !important">
 
       <form method="GET" action="/">
         <div class="form-row">
@@ -68,7 +69,7 @@
                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
               </svg>  --}}
             </label>
-            <button type="submit" class="btn w-100 btn-light" style="">اعمال</button>
+            <button type="submit" class="btn w-100 btn-light change-params-btn">اعمال</button>
 
           </div>
         </div>
@@ -76,10 +77,11 @@
       </form>
 
     </div>
+  </div>
 
     <div class="container">
       <div class="card-deck mb-3 text-center">
-        <table class="table table-hover">
+        <table class="table table-responsive table-hover">
             <thead>
               <tr>
                 <td colspan="10" class="text-left text-success border-0">
@@ -90,8 +92,14 @@
               </tr>
               <tr>
                 <th scope="col">#</th>
+                @if($params['direction'] == '0')
                 <th scope="col">English</th>
                 <th scope="col">Persion</th>
+                @else
+                <th scope="col">Persion</th>
+                <th scope="col">English</th>
+                @endif
+            
                 <th scope="col">Description</th>
                 {{-- <th scope="col" colspan="3">Example + Trs</th> --}}
                 {{-- <th scope="col">Translate</th> --}}
@@ -107,8 +115,15 @@
                 @foreach($words as $index=>$word)
                 <tr>
                     <th class="align-middle text-center" scope="row">{{$index+1}}</th>
+
+                    @if($params['direction'] == '0')
                     <td class="align-middle text-center">{{$word->eng}}</td>
                     <td class="align-middle text-center hideword" onclick="show(this)">{{$word->per}}</td>
+                    @else
+                    <td class="align-middle text-center">{{$word->per}}</td>
+                    <td class="align-middle text-center hideword" onclick="show(this)">{{$word->eng}}</td>
+                    @endif
+                  
                     <td class="align-middle text-justify" dir="ltr">{{$word->description}}</td>
                     {{-- <td class="align-middle text-center" colspan="3">{{$word->example}} <br> {{$word->example_trs}}</td> --}}
                     {{-- <td class="align-middle text-center">{{$word->example_trs}}</td> --}}

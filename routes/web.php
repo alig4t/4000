@@ -55,7 +55,7 @@ Route::get('/words/{id}/edit', 'App\Http\Controllers\HomeController@edit')->name
 Route::patch('/words/{id}/', 'App\Http\Controllers\HomeController@update')->name('word.update')->middleware('auth');
 
 Route::get('/words/{id}/', function($id){
-    return redirect()->route('word.formupdate',[$id]);;
+    return redirect()->route('word.formupdate',['id' => $id]);;
 });
 
 
