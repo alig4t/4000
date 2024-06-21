@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Gate;
+
 
 class HomeController extends Controller
 {
@@ -128,20 +130,28 @@ class HomeController extends Controller
 
     public function update(Request $request,$id){
    
-        session(['edit_url' => url()->current()]);
+        
+    $user = Auth::user();
+    $word = Word::find($id);
 
-        $previousUrl = session('previous_url');
-        $editUrl = session('edit_url');
+        if (Gate::allows('update', $word)) {
+            session(['edit_url' => url()->current()]);
+            $previousUrl = session('previous_url');
+            $editUrl = session('edit_url');
+            $word = Word::whereId($id)->first();
+            $word->update($request->all());
+            if ($previousUrl) {
+                return redirect($previousUrl);
+            }elseif ($editUrl) {
+            return redirect($editUrl);
+        }
+        } else {
+            // کاربر اجازه ویرایش ندارد
+            abort(403, 'Unauthorized action.');
+        }
 
 
-        $word = Word::whereId($id)->first();
-        $word->update($request->all());
-
-        if ($previousUrl) {
-        return redirect($previousUrl);
-    } elseif ($editUrl) {
-        return redirect($editUrl);
-    }
+ 
       
     }
 

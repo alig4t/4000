@@ -50,8 +50,14 @@ use App\Http\Controllers;
     // return $words;
 // });
 
-Route::get('/words/{id}/edit', 'App\Http\Controllers\HomeController@edit')->middleware('auth');
+Route::get('/words/{id}/edit', 'App\Http\Controllers\HomeController@edit')->name('word.formupdate')->middleware('auth');
+
 Route::patch('/words/{id}/', 'App\Http\Controllers\HomeController@update')->name('word.update')->middleware('auth');
+
+Route::get('/words/{id}/', function($id){
+    return redirect()->route('word.formupdate',[$id]);;
+});
+
 
 Route::post('/words/{id}/tik/{dir}', 'App\Http\Controllers\HomeController@changeTik')->middleware('auth');
 

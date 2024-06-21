@@ -13,6 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
+        Word::class => WordPolicy::class,
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
     ];
 
@@ -27,4 +28,6 @@ class AuthServiceProvider extends ServiceProvider
 
         //
     }
+
+
 }
