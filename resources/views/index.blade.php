@@ -18,12 +18,12 @@
         </p>
     </div>
 
-    <div class="container border rounded bg-info p-4 mb-5">
+    <div class="container border rounded p-4 mb-5 box-shadow shadow-sm" style="background-color: rgba(231, 226, 200, 0.732);border-color:#e5d8b3">
 
       <form method="GET" action="/">
         <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="inputCity">انتخاب جلد</label>
+          <div class="form-group col-md-3 text-right">
+            <label for="inputCity" class="">انتخاب جلد</label>
             {{-- <input type="text" class="form-control" id="inputCity"> --}}
             <select id="inputCity" name="chapter" class="form-control">
               <option value="all" {{($params['chapter'] == 'all') ? 'selected' : ''}}>همه جلدها</option>
@@ -37,7 +37,7 @@
             </select>
           </div>
           {{-- {{dd($params['test_tik'])}} --}}
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-3 text-right">
             <label for="inputState">واژگانی که:</label>
             <select id="inputState" name="test_tik" class="form-control">
               <option value="all" {{($params['test_tik'] == 'all') ? 'selected' : ''}}>همه حالت</option>
@@ -45,14 +45,14 @@
               <option value="1"   {{($params['test_tik'] == '1') ? 'selected' : ''}}>بلد نبودم</option>
             </select>
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-3 text-right">
             <label for="inputZip">جهت خواندن:</label>
             <select id="inputZip" name="direction" class="form-control">
               <option value="0" {{($params['direction'] == '0') ? 'selected' : ''}}>انگلیسی به فارسی</option>
               <option value="1" {{($params['direction'] == '1') ? 'selected' : ''}}>فارسی به انگلیسی</option>
             </select>
           </div>
-          <div class="form-group col-md-3">
+          <div class="form-group col-md-3 text-right">
             <label for="inputZip">ترتیب:</label>
             <select id="inputZip" name="orderby" class="form-control">
               <option value="id" {{($params['orderby'] == 'id') ? 'selected' : ''}}>شماره کم به زیاد </option>
@@ -68,7 +68,7 @@
                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
               </svg>  --}}
             </label>
-            <button type="submit" class="btn btn-danger w-100">اعمال</button>
+            <button type="submit" class="btn w-100 btn-light" style="">اعمال</button>
 
           </div>
         </div>
@@ -109,7 +109,7 @@
                     <th class="align-middle text-center" scope="row">{{$index+1}}</th>
                     <td class="align-middle text-center">{{$word->eng}}</td>
                     <td class="align-middle text-center hideword" onclick="show(this)">{{$word->per}}</td>
-                    <td class="align-middle text-center">{{$word->description}}</td>
+                    <td class="align-middle text-justify" dir="ltr">{{$word->description}}</td>
                     {{-- <td class="align-middle text-center" colspan="3">{{$word->example}} <br> {{$word->example_trs}}</td> --}}
                     {{-- <td class="align-middle text-center">{{$word->example_trs}}</td> --}}
                     <td class="align-middle text-center">{{$word->chapter}}</td>
@@ -153,12 +153,12 @@
 
                   </tr>
 
-                  <tr class="bg-info text-light hiderow">
-                    <td colspan="3">
-                      <p class="text-right">{{$word->example_trs}}</p>
+                  <tr class=" hiderow" style="background-color: #f1f0c4;">
+                    <td colspan="3" class="align-middle">
+                      <p class="text-right m-2">{{$word->example_trs}}</p>
                    </td>
-                   <td colspan="5">
-                      <p class="text-left">{{$word->example}}</p>
+                   <td colspan="5" class="align-middle" dir="ltr">
+                      <p class="text-left m-2">{{$word->example}}</p>
                    </td>
                   </tr>
                   
@@ -223,6 +223,7 @@
         tag.className = 'showword';
         nextTr.classList.remove('hiderow');
         nextTr.classList.add('showword');
+  
       }
 
 
