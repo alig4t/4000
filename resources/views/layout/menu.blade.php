@@ -14,8 +14,9 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav me-auto">
             <li>
-              
-              <button type="button" class="btn btn-danger">جستجوی واژه</button>
+              <a href="/search">
+                <button type="button" class="btn btn-danger">جستجوی واژه</button>
+            </a>
               {{-- <a class="btn btn-outline-danger" href="/search">جستجو واژه</a> --}}
               </li>          
             
