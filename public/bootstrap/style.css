@@ -290,7 +290,6 @@ nav.navbar{
 
   .word-info .infobox span{
     font-weight: bold;
-    
   }
 
 
@@ -298,3 +297,40 @@ nav.navbar{
     text-align: center;
     vertical-align: middle;
   }
+
+  .wo-pagination{
+    margin-top: 50px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pagination .page-link {
+    background: #444b6e9d; 
+    border-color:  #3d315b55;
+     color: #fff;
+     font-weight: bold;
+}
+
+.active>.page-link, .page-link.active{
+  border:1px solid #3D315B ;
+  background-color: #92b868d8;
+}
+
+.page-item:first-child .page-link {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: var(--bs-pagination-border-radius);
+  border-bottom-right-radius: var(--bs-pagination-border-radius);
+}
+.page-item:last-child .page-link {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: var(--bs-pagination-border-radius);
+  border-bottom-left-radius: var(--bs-pagination-border-radius);
+}
+
+
+
+

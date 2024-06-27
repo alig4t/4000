@@ -169,7 +169,7 @@
                 <div class="w-100 word-info">
 
 
-                  <div class="mb-3">
+                  <div class="mb-3 d-lg-none">
                   <div class="w-100 infobox">
                     <span class="badge text-bg-danger">توضیح واژه :</span>
                   </div>
@@ -207,8 +207,12 @@
     <div class="container">
       
 
-      <div class="d-flex justify-content-center">
-        {{ $words->appends($_GET)->links() }}
+      <div class="wo-pagination">
+        {{--  {{ $words->appends($_GET)->links() }}  --}}
+
+        {{ $words->onEachSide(1)->links() }}
+
+
       </div>
 
       @include('layout.footer')
