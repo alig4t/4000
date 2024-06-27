@@ -66,7 +66,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->middleware('auth')
 
 
 
-Route::get('/search', 'App\Http\Controllers\HomeController@search');
+Route::get('/search', 'App\Http\Controllers\HomeController@search')->name('search');
 
 
 Auth::routes();

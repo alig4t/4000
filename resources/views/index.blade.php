@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-   
-    <title>4000 واژه ضروری انگلیسی</title>
-    @include('layout.meta')
+@include('layout.meta')
 
+<head>
+    <title>4000 واژه ضروری انگلیسی</title>
   </head>
 
   <body>
 
-    @include('layout.menu')
+    @include('layout.header')
 
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div class="pricing-header px-3 py-3 pt-5 pt-md-5 pb-md-4 mx-auto text-center">
       <h1 class="display-4">لیست لغات</h1>
       <p class="lead">
         لیست 4000 واژه ضروری انگلیسی در اینجا محیا شده است. این کتاب دارای 6 جلد می باشد
@@ -19,10 +18,10 @@
     </div>
 
     <div class="p-3">
-    <div class="container border rounded p-4 mb-5 box-shadow shadow-sm" style="background-color: rgba(231, 226, 200, 0.732);border-color:#e5d8b3; border-bottom:3px solid #cfaf3a !important">
+    <div class="container border rounded p-4 mb-5 box-shadow shadow-sm" style="background-color: rgba(74, 161, 150, 0.732);border-color:#e5d8b3; border-bottom:3px solid #cfaf3a !important">
 
       <form method="GET" action="/">
-        <div class="form-row">
+        <div class="form row">
           <div class="form-group col-md-3 text-right">
             <label for="inputCity" class="">انتخاب جلد</label>
             {{-- <input type="text" class="form-control" id="inputCity"> --}}
@@ -63,7 +62,7 @@
               <option value="rand" {{($params['orderby'] == 'rand') ? 'selected' : ''}}>رندوم</option>
             </select>
           </div>
-          <div class="form-group col-md-12">
+          <div class="form-group col-md-12 mt-4">
             <label for="inputZip">
               {{-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                 <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
@@ -79,134 +78,145 @@
     </div>
   </div>
 
+
+
+
+
+
     <div class="container">
-      <div class="card-deck mb-3 text-center">
-        <table class="table table-responsive table-hover">
-            <thead>
-              <tr>
-                <td colspan="10" class="text-left text-success border-0">
-
-                  تعداد نتایج : {{$words->total()}}
-                </td>
-
-              </tr>
-              <tr>
-                <th scope="col">#</th>
-                @if($params['direction'] == '0')
-                <th scope="col">English</th>
-                <th scope="col">Persion</th>
-                @else
-                <th scope="col">Persion</th>
-                <th scope="col">English</th>
-                @endif
-            
-                <th scope="col">Description</th>
-                {{-- <th scope="col" colspan="3">Example + Trs</th> --}}
-                {{-- <th scope="col">Translate</th> --}}
-                <th scope="col">Chapter</th>
-                <th scope="col">unit</th>
-                <th scope="col">Status</th>
-                <th scope="col">operate</th>
-
-
-              </tr>
-            </thead>
-            <tbody>
-                @foreach($words as $index=>$word)
-                <tr>
-                    <th class="align-middle text-center" scope="row">{{$index+1}}</th>
-
-                    @if($params['direction'] == '0')
-                    <td class="align-middle text-center">{{$word->eng}}</td>
-                    <td class="align-middle text-center hideword" onclick="show(this)">{{$word->per}}</td>
-                    @else
-                    <td class="align-middle text-center">{{$word->per}}</td>
-                    <td class="align-middle text-center hideword" onclick="show(this)">{{$word->eng}}</td>
-                    @endif
-                  
-                    <td class="align-middle text-justify" dir="ltr">{{$word->description}}</td>
-                    {{-- <td class="align-middle text-center" colspan="3">{{$word->example}} <br> {{$word->example_trs}}</td> --}}
-                    {{-- <td class="align-middle text-center">{{$word->example_trs}}</td> --}}
-                    <td class="align-middle text-center">{{$word->chapter}}</td>
-                    <td class="align-middle text-center">{{$word->unit}}</td>
-                    <td class="align-middle text-center can">
-                    
-                      @if($params['direction'] == 0)
-                          @if($word->eng_check == 1)
-                            <span class="badge badge-danger" onclick="changeStatus(this,{{$word->id}},1,'en')">بلد نیستم</span>
-                          @else
-                          <span class="badge badge-success" onclick="changeStatus(this,{{$word->id}},0,'en')">بلدم</span>
-                          @endif
-
-                      @else
-
-                      @if($word->per_check == 1)
-                      <span class="badge badge-danger" onclick="changeStatus(this,{{$word->id}},1,'fa')">بلد نیستم</span>
-                      @else
-                      <span class="badge badge-success" onclick="changeStatus(this,{{$word->id}},0,'fa')">بلدم</span>
-                      @endif
-
-                      @endif
-
-                    </td>
-
-                    <td class="align-middle text-center">
-                      <a href="/words/{{$word->id}}/edit" class="operate">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
-                          <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
-                          <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
-                        </svg>
-                      </a>
-                    </td>
-
-                    {{-- <td> --}}
-                      {{-- <tr> --}}
-                        
-                      {{-- </tr> --}}
-                    {{-- </td> --}}
-
-
-                  </tr>
-
-                  <tr class=" hiderow" style="background-color: #f1f0c4;">
-                    <td colspan="3" class="align-middle">
-                      <p class="text-right m-2">{{$word->example_trs}}</p>
-                   </td>
-                   <td colspan="5" class="align-middle" dir="ltr">
-                      <p class="text-left m-2">{{$word->example}}</p>
-                   </td>
-                  </tr>
-                  
-                 
-                @endforeach
-            </tbody>
-          </table>
-
-          {{-- <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                {!! $words->links() !!}
-            </ul>
-          </nav> --}}
-
-         
-
-          {{-- {!! $words->links() !!} --}}
-
+      <div class="w-100 text-start my-3 text-success">
+        تعداد نتایج : {{$words->total()}}
       </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            
+            @if($params['direction'] == '0')
+            <th scope="col">English</th>
+            <th scope="col">Persion</th>
+            @else
+            <th scope="col">Persion</th>
+            <th scope="col">English</th>
+            @endif
+        
+            <th scope="col" class="hiddenable-cell">Description</th>
+            <th scope="col" class="hiddenable-cell">Chapter</th>
+            <th scope="col" class="hiddenable-cell">unit</th>
+            <th scope="col">Status</th>
+            <th scope="col">operate</th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach($words as $index=>$word)
+          <tr>
+            <th scope="row">{{$index+1}}</th>
+
+            @if($params['direction'] == '0')
+            <td>{{$word->eng}}</td>
+            <td class="hideword">
+              <a class="w-100 btn" type="button" data-bs-toggle="collapse" href="#collapseWord{{$index}}" aria-expanded="false" aria-controls="collapseWord{{$index}}"
+              onclick="showTag(this)"
+              >
+                {{$word->per}}
+            </a>
+              </td>
+            @else
+            <td>{{$word->per}}</td>
+            <td>{{$word->eng}}</td>
+            @endif
+
+            <td class="hiddenable-cell">{{$word->description}}</td>
+            <td class="hiddenable-cell">{{$word->chapter}}</td>
+
+            <td class="hiddenable-cell">{{$word->unit}}</td>
+            <td class="can">
+              
+              @if($params['direction'] == 0)
+              @if($word->eng_check == 1)
+                <span class="badge text-bg-danger" onclick="changeStatus(this,{{$word->id}},1,'en')">بلد نیستم</span>
+              @else
+              <span class="badge text-bg-success" onclick="changeStatus(this,{{$word->id}},0,'en')">بلدم</span>
+              @endif
+
+          @else
+
+          @if($word->per_check == 1)
+          <span class="badge text-bg-danger" onclick="changeStatus(this,{{$word->id}},1,'fa')">بلد نیستم</span>
+          @else
+          <span class="badge text-bg-success" onclick="changeStatus(this,{{$word->id}},0,'fa')">بلدم</span>
+          @endif
+
+          @endif
+            </td>
+            <td>
+              
+              <a href="/words/{{$word->id}}/edit" class="operate">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                  <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                  <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                </svg>
+              </a>
+            </td>
+
+          </tr>
+
+
+          <tr>
+            <td colspan="15" style="padding: 0 !important;">
+              <div class="collapse" id="collapseWord{{$index}}">
+
+                <div class="w-100 word-info">
+
+
+                  <div class="mb-3">
+                  <div class="w-100 infobox">
+                    <span class="badge text-bg-danger">توضیح واژه :</span>
+                  </div>
+                  <div class="section-box">
+                      <p class="col-12 text-start" dir="ltr"> {{$word->description}}</p>
+                  </div>
+                  </div>
+
+                  <div class="my-1">
+                  <div class="w-100 infobox">
+                    <span class="badge text-bg-danger">مثال :</span>
+                  </div>
+                  <div class="section-box">
+                    <div class="row m-0" dir="ltr">
+                      <p class="col-12 col-md-6 text-start" > {{$word->example}}</p>
+                      <p class="col-12 col-md-6" dir="rtl"> {{$word->example_trs}}</p>
+                    </div>
+                  </div>
+                </div>
+
+
+                </div>
+                
+              </div> 
+            </td>
+          </tr>
+
+
+          @endforeach          
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="container">
+      
 
       <div class="d-flex justify-content-center">
-        {{-- {!! $words->links() !!} --}}
-
         {{ $words->appends($_GET)->links() }}
-
       </div>
-
-
 
       @include('layout.footer')
 
     </div>
-    <script src="js/app.js"></script>
+
+
+    {{--  <script src="js/app.js"></script>  --}}
 
 
 
@@ -219,9 +229,9 @@
            console.log(resp.data);
            if(resp.data['status'] == 0){
                       
-             tag.outerHTML = '<span class="badge badge-success" onclick="changeStatus(this,'+ id +',0)">بلدم</span>';
+             tag.outerHTML = '<span class="badge text-bg-success" onclick="changeStatus(this,'+ id +',0)">بلدم</span>';
            }else{
-            tag.outerHTML = '<span class="badge badge-danger" onclick="changeStatus(this,'+ id +',1)">بلد نیستم</span>';
+            tag.outerHTML = '<span class="badge text-bg-danger" onclick="changeStatus(this,'+ id +',1)">بلد نیستم</span>';
            }
 
            
@@ -231,13 +241,18 @@
 
 
       
-      function show(tag){
+      function showTag(tag){
+        console.log(tag);
+        console.log(tag.className);
+        
+        tag.classList.remove('hideword');
+        tag.classList.add('showword');
 
         // console.log(tag.parentElement.nextSibling.nextSibling);
-        let nextTr = tag.parentElement.nextSibling.nextSibling;
-        tag.className = 'showword';
-        nextTr.classList.remove('hiderow');
-        nextTr.classList.add('showword');
+        // let nextTr = tag.parentElement.nextSibling.nextSibling;
+        // tag.className = 'showword';
+        // nextTr.classList.remove('hiderow');
+        // nextTr.classList.add('showword');
   
       }
 
