@@ -246,12 +246,8 @@
 
       
       function showTag(tag){
-        console.log(tag);
-        console.log(tag.className);
-        
-        tag.classList.remove('hideword');
-        tag.classList.add('showword');
-
+        tag.parentElement.classList.toggle("showword");
+      
         // console.log(tag.parentElement.nextSibling.nextSibling);
         // let nextTr = tag.parentElement.nextSibling.nextSibling;
         // tag.className = 'showword';

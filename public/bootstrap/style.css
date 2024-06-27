@@ -120,8 +120,11 @@ html {
 .hideword:focus{
   opacity: 1;
 }
+.hideword:click{
+  opacity: 1;
+}
 .showword{
-    opacity: 1;
+    opacity: 1 !important;
 }
 .hiderow{
     display: none;
@@ -304,6 +307,9 @@ nav.navbar{
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .wo-pagination ul{
+    padding: 0 !important;
   }
 
   .pagination .page-link {
