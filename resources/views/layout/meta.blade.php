@@ -12,7 +12,7 @@
     {{--  <!-- Bootstrap core CSS -->  --}}
     <link href="/bootstrap/bootstrap.min.css" rel="stylesheet">
 
-    <link href="/bootstrap/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     {{--  <link href="/bootstrap/dark.scss" rel="stylesheet">  --}}
 
     <script src="/bootstrap/bootstrap.bundle.min.js"></script>

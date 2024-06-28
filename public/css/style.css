@@ -1,12 +1,107 @@
+@import url(fontiran.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
+* {
+  font-family: IRANSansXFaNum, "Open Sans", sans-serif !important;
+  box-sizing: border-box !important;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: IRANSansXFaNum, "Open Sans", sans-serif !important;
+  box-sizing: border-box !important;
+  direction: rtl;
+  /* background-color: #cdcdcd; */
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea {
+  font-family: IRANSansXFaNum, "Open Sans", sans-serif !important;
+}
+h1 {
+  font-weight: bold;
+}
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.ltr {
+  direction: ltr;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-small {
+  font-size: 0.8em;
+}
+.text-xsmall {
+  font-size: 0.6em;
+}
+.text-large {
+  font-size: 1.2em;
+}
+.text-xlarge {
+  font-size: 1.4em;
+}
+.text-underline {
+  text-decoration: underline;
+}
+
+.text-thin {
+  font-weight: 100;
+}
+.text-UltraLight {
+  font-weight: 200;
+}
+.text-light {
+  font-weight: 300;
+}
+.text-regular {
+  font-weight: 400;
+}
+.text-medium {
+  font-weight: 500;
+}
+.text-demibold {
+  font-weight: 600;
+}
+.text-bold {
+  font-weight: 700;
+}
+
+.text-extrabold {
+  font-weight: 800;
+}
+.text-black {
+  font-weight: 900;
+}
+
+
+ /*
 body{
-    /* background-color: rgba(255, 226, 227, 0.1); */
-    /* background-color: #fff; */
+    background-color: rgba(255, 226, 227, 0.1); */
+    /* background-color: #fff; 
     direction: rtl;
     color: rgb(38 50 56);
     font-family: "Dosis",sans-serif;
 }
-
+*/
 @keyframes sun_rotate{
   0%{
     transform: rotate(0deg);
@@ -46,7 +141,17 @@ body{
   background-color: var(--bs-primary-bg-subtle);;
 }
 
- 
+[data-bs-theme=dark] .drawer-list{
+  border-bottom: 1px solid #e5e5e52f ;
+  color: #fcfdff;
+}
+
+[data-bs-theme=dark] .wo-powered{
+  
+}
+[data-bs-theme=dark] nav.navbar svg{
+  color: rgba(249, 249, 249, 0.93) ;
+}
 [data-bs-theme=dark] .wo-wall {
   border-color: rgba(249, 249, 249, 0.338) ;
 }
@@ -170,7 +275,34 @@ nav.navbar{
   padding: 0;
 }
 
+.navbar-toggler{
+  align-items: center !important;
+  justify-content: center !important; 
+  --tw-border-opacity: 1 !important;
+    border-color: rgb(250 250 250) !important;
+    border-width: 2px !important;
+    border-radius: .375rem !important;
+  padding: 0 !important;
+  width: 3rem !important;
+  height: 2.75rem !important;
+}
 
+.navbar-toggler-icon{
+  width: 1.7em !important;
+  height: 1.7em !important;
+  color: rgb(38 50 56);
+} 
+nav.navbar svg{
+  color: rgb(38 50 56);
+  font-size: 1.875rem;
+    line-height: 2.25rem;
+    display: block;
+    vertical-align: middle;
+}
+
+.navbar-toggler:focus{
+  box-shadow: none !important;
+}
 /* dark Mode */
 
 /* .toggle-checkbox {
@@ -289,19 +421,34 @@ nav.navbar{
   }
   .word-info .infobox{
     height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .word-info .section-box{
     /* background: rgba(167, 200, 201, 0.464); */
     padding: 10px 5px;
     /* border-radius: 5px; */
-    border: 2px dashed rgb(220,53,69);
+    border: 2px dashed #b9b8b7;
   }
 
   .word-info .infobox span{
     font-weight: bold;
   }
 
+  .wo-edit-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+  .wo-edit-btn p{
+    font-size: 11px;
+    margin: 0;
+    color: #d13478;
+  }
 
   .table th,  .table td{
     text-align: center;
@@ -344,6 +491,26 @@ nav.navbar{
   border-bottom-left-radius: var(--bs-pagination-border-radius);
 }
 
+.wo-prof {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  gap: 5px;
+}
 
+.wo-prof h5{
+  font-size: 14px;
+}
+.wo-prof h6{
+  font-size: 12px;
+  color: gray;
+}
+.wo-prof button{
+  font-size: 13px;
+}
 
-
+.wo-powered{
+  text-align: center;
+  font-size: 12px;
+  color: rgba(191, 191, 191, 0.667);
+}

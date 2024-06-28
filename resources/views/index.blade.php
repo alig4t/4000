@@ -87,7 +87,7 @@
       <div class="w-100 text-start my-3 text-success">
         تعداد نتایج : {{$words->total()}}
       </div>
-      <table class="table">
+      <table class="table table-responsive">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -105,7 +105,7 @@
             <th scope="col" class="hiddenable-cell">Chapter</th>
             <th scope="col" class="hiddenable-cell">unit</th>
             <th scope="col">Status</th>
-            <th scope="col">operate</th>
+            <th scope="col" class="hiddenable-cell">operate</th>
           </tr>
         </thead>
         <tbody>
@@ -159,7 +159,7 @@
 
           @endif
             </td>
-            <td>
+            <td class="hiddenable-cell">
               
               <a href="/words/{{$word->id}}/edit" class="operate">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
@@ -181,7 +181,18 @@
 
                   <div class="mb-3 d-lg-none">
                   <div class="w-100 infobox">
-                    <span class="badge text-bg-danger">توضیح واژه :</span>
+                    <span class="badge text-bg-warning">توضیح واژه :</span>
+                    <div class="wo-edit-btn">
+                    
+                      <a href="/words/{{$word->id}}/edit" class="operate wo-edit-btn">
+                        <p> ویرایش واژه</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
+                          <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
+                          <path d="M11.5 9c.653 0 1.273-.139 1.833-.39L12 5.5 11 3l3.826-1.53A4.5 4.5 0 0 0 7.29 6.092l-6.116 5.096a2.583 2.583 0 1 0 3.638 3.638L9.908 8.71A4.49 4.49 0 0 0 11.5 9Zm-1.292-4.361-.596.893.809-.27a.25.25 0 0 1 .287.377l-.596.893.809-.27.158.475-1.5.5a.25.25 0 0 1-.287-.376l.596-.893-.809.27a.25.25 0 0 1-.287-.377l.596-.893-.809.27-.158-.475 1.5-.5a.25.25 0 0 1 .287.376ZM3 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                        </svg>
+                      </a>
+                    </div>
+                    
                   </div>
                   <div class="section-box">
                       <p class="col-12 text-start" dir="ltr"> {{$word->description}}</p>
@@ -190,7 +201,7 @@
 
                   <div class="my-1">
                   <div class="w-100 infobox">
-                    <span class="badge text-bg-danger">مثال :</span>
+                    <span class="badge text-bg-warning">مثال :</span>
                   </div>
                   <div class="section-box">
                     <div class="row m-0" dir="ltr">
@@ -218,22 +229,16 @@
       
 
       <div class="wo-pagination">
-        {{--  {{ $words->appends($_GET)->links() }}  --}}
-
+    
         {{ $words->onEachSide(1)->links() }}
-
 
       </div>
 
       @include('layout.footer')
 
 
-      <button type="btn" onclick="sayPronounce()" >Click to listen</button>
-
     </div>
 
-
-    {{--  <script src="js/app.js"></script>  --}}
 
 
 
@@ -269,26 +274,12 @@
   
       }
 
-
     </script>
 
     
-    <script>
-      
-      
-      function sayPronounce(word){
-        word = 'hide';
-        console.log(word);
-        spoken.say(word)
-      }
 
-    </script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     
-  
 
 </body>
 </html>

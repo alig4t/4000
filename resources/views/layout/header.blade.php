@@ -23,10 +23,11 @@
             <span class="wo-wall h-100"></span>
 
             
-            <span class="wo-wall h-100 d-block d-md-none"></span>
+            {{--  <span class="wo-wall h-100 d-block d-md-none"></span>  --}}
 
-            <button class="navbar-toggler d-block d-md-none d-flex align-items-center" type="button" style="width: 44px;height: 42px;"   data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler d-flex d-md-none align-items-center" type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              {{--  <span class="navbar-toggler-icon"></span>  --}}
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class=" text-3xl text-blue-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
           </button>
             
           {{--  <span class="wo-wall d-block d-md-none"></span>  --}}
@@ -62,9 +63,7 @@
 
               <div class="d-none d-md-flex align-items-center justify-content-center">
               <div class="profile-drop " role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
-                {{--  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="-6 -5 36 36" strokeWidth={3} stroke="currentColor" className="display-6 ">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                  </svg>  --}}
+                
                   <img src="/img/icons8-name-48.png" />
                   <ul class="dropdown-menu ms-4" dir="rtl">
                     <li class="dropdown-item text-end">
@@ -101,53 +100,69 @@
         </div>
       
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header justify-content-between">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">4000 واژه ضروری انگلیسی</h5>
-          <button type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-header justify-content-between flex-row-reverse">
+
+         
+          {{--  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">4000 واژه ضروری انگلیسی</h5>  --}}
+          <button type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close">
+
+          </button>
         </div>
-        <div class="offcanvas-body">
+
+
+        @guest
+
+        @if (Route::has('login'))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+    @endif
+
+    @if (Route::has('register'))
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+        </li>
+    @endif
+                 
+              @else
+
+              <div class="d-flex justify-content-center">
+                <img src="/img/icons8-name-96.png" width="96px" height="96px" />
+              </div>
+              
+              <div class="d-flex flex-column wo-prof">
+                  <h5>خوش آمدید 
+                    {{ Auth::user()->name }}</h5>
+                    <h6> {{ Auth::user()->email }}</h6>
+
+                    <button type="button" class="btn btn-dark" onclick="event.preventDefault();
+              document.getElementById('logout-form2').submit();">
+                
+              {{ __('خروج از حساب') }}
+              <form id="logout-form2" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+              </button>
+
+              </div>
+                 
+              @endguest
+
+
+
+
+      
+
+
+        <div class="offcanvas-body d-flex flex-column justify-content-between mt-3">
           
             
           <div class="list-group">
             <a href="/" class="drawer-list">صفحه اصلی</a>
             <a href="/search" class="drawer-list">جستجوی واژه</a>
-           
           </div>
           
-
-          @guest
-          @if (Route::has('login'))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-              </li>
-          @endif
-
-          @if (Route::has('register'))
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-              </li>
-          @endif
-      @else    
-
-      <div class="d-flex text-center justify-content-center mt-5">
-        <button type="button" class="btn btn-dark" onclick="event.preventDefault();
-      document.getElementById('logout-form2').submit();">
-        
-      {{ __('خروج از حساب') }}
-      </button>
-      </div>
-      
-
-                
-
-             <form id="logout-form2" action="{{ route('logout') }}" method="POST" class="d-none">
-                 @csrf
-             </form>
-  
-      @endguest
-
-
-
+          <p class="wo-powered">Powered By Ali Ghasemi</p>
 
 
         </div>
