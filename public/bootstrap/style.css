@@ -40,11 +40,16 @@ body{
 [data-bs-theme=dark] nav.navbar {
   color: var(--bs-primary-text-emphasis);
   background-color: var(--bs-primary-bg-subtle);
+  border-bottom: rgba(249, 249, 249, 0.338) ;
 } 
 [data-bs-theme=dark]  .word-info{
   background-color: var(--bs-primary-bg-subtle);;
 }
 
+ 
+[data-bs-theme=dark] .wo-wall {
+  border-color: rgba(249, 249, 249, 0.338) ;
+}
 
 html {
     font-size: 14px;
@@ -132,11 +137,11 @@ html {
 
 
 .profile-drop{
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 100%;
-    border: 1px solid rgb(161, 159, 159);
-    background-color: #f0f0f0;
+    /* border: 1px solid rgb(161, 159, 159); */
+    /* background-color: #f0f0f0; */
     margin-left: 15px;
     /* position: relative; */
 }
@@ -154,13 +159,15 @@ html {
 }
 
 .wo-wall{
-  border-right: 1px solid #eee;
+  border-right: 1px solid #4950570d;
 }
 
 nav.navbar{
   background-color: #fff;
   box-shadow: 0px 0px 4px #eee;
   border-bottom: 1px solid #f0f0f0;
+  height: 55px;
+  padding: 0;
 }
 
 

@@ -94,6 +94,7 @@
             
             @if($params['direction'] == '0')
             <th scope="col">English</th>
+            <th scope="col"></th>
             <th scope="col">Persion</th>
             @else
             <th scope="col">Persion</th>
@@ -113,7 +114,16 @@
             <th scope="row">{{$index+1}}</th>
 
             @if($params['direction'] == '0')
-            <td>{{$word->eng}}</td>
+            <td>
+             
+              {{$word->eng}}
+            
+             
+            </td>
+            <td>
+              <img src="img/icons8-speaker-64.png" width="18px" class="ms-2"  onclick="spoken.say('{{$word->eng}}')" />
+              
+            </td>
             <td class="hideword">
               <a class="w-100 btn" type="button" data-bs-toggle="collapse" href="#collapseWord{{$index}}" aria-expanded="false" aria-controls="collapseWord{{$index}}"
               onclick="showTag(this)"
@@ -217,6 +227,9 @@
 
       @include('layout.footer')
 
+
+      <button type="btn" onclick="sayPronounce()" >Click to listen</button>
+
     </div>
 
 
@@ -256,6 +269,18 @@
   
       }
 
+
+    </script>
+
+    
+    <script>
+      
+      
+      function sayPronounce(word){
+        word = 'hide';
+        console.log(word);
+        spoken.say(word)
+      }
 
     </script>
 
