@@ -22,7 +22,7 @@
 
       <form method="GET" action="/">
         <div class="form row">
-          <div class="form-group col-md-3 text-right">
+          <div class="form-group col-md-3 text-right mb-2">
             <label for="inputCity" class="">انتخاب جلد</label>
             {{-- <input type="text" class="form-control" id="inputCity"> --}}
             <select id="inputCity" name="chapter" class="form-control">
@@ -37,7 +37,7 @@
             </select>
           </div>
           {{-- {{dd($params['test_tik'])}} --}}
-          <div class="form-group col-md-3 text-right">
+          <div class="form-group col-md-3 text-right mb-2">
             <label for="inputState">واژگانی که:</label>
             <select id="inputState" name="test_tik" class="form-control">
               <option value="all" {{($params['test_tik'] == 'all') ? 'selected' : ''}}>همه حالت</option>
@@ -45,14 +45,14 @@
               <option value="1"   {{($params['test_tik'] == '1') ? 'selected' : ''}}>بلد نبودم</option>
             </select>
           </div>
-          <div class="form-group col-md-3 text-right">
+          <div class="form-group col-md-3 text-right mb-2">
             <label for="inputZip">جهت خواندن:</label>
             <select id="inputZip" name="direction" class="form-control">
               <option value="0" {{($params['direction'] == '0') ? 'selected' : ''}}>انگلیسی به فارسی</option>
               <option value="1" {{($params['direction'] == '1') ? 'selected' : ''}}>فارسی به انگلیسی</option>
             </select>
           </div>
-          <div class="form-group col-md-3 text-right">
+          <div class="form-group col-md-3 text-right mb-2">
             <label for="inputZip">ترتیب:</label>
             <select id="inputZip" name="orderby" class="form-control">
               <option value="id" {{($params['orderby'] == 'id') ? 'selected' : ''}}>شماره کم به زیاد </option>
@@ -133,7 +133,13 @@
               </td>
             @else
             <td>{{$word->per}}</td>
-            <td>{{$word->eng}}</td>
+            <td class="hideword">
+            <a class="w-100 btn" type="button" data-bs-toggle="collapse" href="#collapseWord{{$index}}" aria-expanded="false" aria-controls="collapseWord{{$index}}"
+              onclick="showTag(this)"
+              >  
+            {{$word->eng}}
+              </a>
+          </td>
             @endif
 
             <td class="hiddenable-cell">{{$word->description}}</td>
