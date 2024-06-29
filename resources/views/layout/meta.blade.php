@@ -1,3 +1,4 @@
+<!-- @vite(['public/css/app.css', 'public/js/app.js']) -->
 <html lang="ar" dir="rtl" data-bs-theme="light">
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,8 +14,9 @@
 
     <link href="/css/style.css" rel="stylesheet">
 
-    <script src="/bootstrap/bootstrap.bundle.min.js"></script>
-
+    <!-- <script src="/bootstrap/bootstrap.bundle.min.js"></script> -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <
 <script>
 
     // DO NOT EDIT FILE

@@ -249,6 +249,7 @@
 
 
     <script>
+    
       // alert('ss');
       function changeStatus(tag,id,tik,dir){
         console.log(tag);
