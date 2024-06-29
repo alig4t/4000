@@ -236,8 +236,8 @@
 
       <div class="wo-pagination">
     
-        {{ $words->onEachSide(1)->links() }}
-
+        {{ $words->onEachSide(1)->appends($_GET)->links() }}
+       
       </div>
 
       @include('layout.footer')
