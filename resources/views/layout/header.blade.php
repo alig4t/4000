@@ -8,7 +8,7 @@
 
 
             <a href="{{ route('search') }}" class="d-none d-md-flex align-items-center text-decoration-none">
-                <button type="button" class="btn btn-danger">جستجوی واژه</button>
+                <button type="button" class="btn btn-warning">جستجوی واژه</button>
             </a>
 
             <span class="wo-wall  h-100 d-none d-md-block"></span>

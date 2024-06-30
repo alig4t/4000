@@ -459,6 +459,12 @@ nav.navbar svg {
 	.hiddenable-cell {
 		display: table-cell !important;
 	}
+	.font9{
+		font-size: 12px;
+	}
+	.font11{
+		font-size: 13px;
+	}
 }
 .table>:not(caption)>*>*{
 	padding: .5rem .2rem !important;
