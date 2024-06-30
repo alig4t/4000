@@ -23,28 +23,12 @@
             <span class="wo-wall h-100"></span>
 
             
-            {{--  <span class="wo-wall h-100 d-block d-md-none"></span>  --}}
-
+        
             <button class="navbar-toggler d-flex d-md-none align-items-center" type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-              {{--  <span class="navbar-toggler-icon"></span>  --}}
               <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class=" text-3xl text-blue-gray-900" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
           </button>
             
-          {{--  <span class="wo-wall d-block d-md-none"></span>  --}}
-
-            {{--  <label dir="ltr">
-                <input class='toggle-checkbox' type='checkbox' id="darkModeSwitch"></input>
-                <div class='toggle-slot'>
-                  <div class='sun-icon-wrapper'>
-                    <div class="iconify sun-icon" data-icon="feather-sun" data-inline="false"></div>
-                  </div>
-                  <div class='toggle-button'></div>
-                  <div class='moon-icon-wrapper'>
-                    <div class="iconify moon-icon" data-icon="feather-moon" data-inline="false"></div>
-                  </div>
-                </div>
-              </label>  --}}
-       
+          
            
 
             @guest
@@ -70,7 +54,7 @@
                         
                             خوش آمدید 
                             {{ Auth::user()->name }} </li>
-                    {{--  <li><a class="dropdown-item" href="#">Another action</a></li>  --}}
+                
                     <li>
                       <hr class="dropdown-divider">
                     </li>
@@ -102,9 +86,7 @@
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header justify-content-between flex-row-reverse">
 
-         
-          {{--  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">4000 واژه ضروری انگلیسی</h5>  --}}
-          <button type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close">
+        <button type="button" class="btn-close m-0" data-bs-dismiss="offcanvas" aria-label="Close">
 
           </button>
         </div>
@@ -170,69 +152,7 @@
     </div>
   </nav>
 
-{{--  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm border-bottom box-shadow py-0" dir="rtl"> 
-  <div class="container-fluid py-2">
-      <a class="navbar-brand" href="{{ url('/') }}">
-        4000 واژه ضروری انگلیسی
-         
-      </a>
-    
 
-      <div class="d-flex" id="navbarSupportedContent" dir="ltr" style="gap:16px">
-          <!-- Left Side Of Navbar -->
-          <ul class="navbar-nav me-auto">
-            <li>
-              <a href="/search">
-                <button type="button" class="btn btn-danger">جستجوی واژه</button>
-            </a>
-            
-              </li>          
-            
-                      </ul>
-
-          <!-- Right Side Of Navbar -->
-          <ul class="navbar-nav ms-auto items-center">
-              <!-- Authentication Links -->
-              @guest
-                  @if (Route::has('login'))
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                      </li>
-                  @endif
-
-                  @if (Route::has('register'))
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                      </li>
-                  @endif
-              @else
-                  <li class="nav-item dropdown">
-                      <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                          {{ Auth::user()->name }}
-                      </a>
-
-                      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
-                                           document.getElementById('logout-form').submit();">
-                              {{ __('خروج') }}
-                          </a>
-
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                              @csrf
-                          </form>
-                      </div>
-                  </li>
-              @endguest
-          </ul>
-
-      
-                      
-      </div>
-  </div>
-</nav>
-
- --}}
 
 <script>
 
@@ -266,33 +186,4 @@ if (currentTheme) {
 }
 
 
-
-
-// sync with system changes
-{{--  window
-  .matchMedia('(prefers-color-scheme: dark)')
-  .addEventListener('change', ({matches:isDark}) => {
-    theme.value = isDark ? 'dark' : 'light'
-    setPreference()
-  })  --}}
-
-    {{--  document.addEventListener('DOMContentLoaded', (event) => {
-        const htmlElement = document.documentElement;
-        const switchElement = document.getElementById('darkModeSwitch');
-    
-        // Set the default theme to dark if no setting is found in local storage
-        const currentTheme = localStorage.getItem('bsTheme') || 'dark';
-        htmlElement.setAttribute('data-bs-theme', currentTheme);
-        switchElement.checked = currentTheme === 'dark';
-    
-        switchElement.addEventListener('change', function () {
-            if (this.checked) {
-                htmlElement.setAttribute('data-bs-theme', 'dark');
-                localStorage.setItem('bsTheme', 'dark');
-            } else {
-                htmlElement.setAttribute('data-bs-theme', 'light');
-                localStorage.setItem('bsTheme', 'light');
-            }
-        });
-    });  --}}
 </script>

@@ -448,11 +448,20 @@ nav.navbar svg {
 .hiddenable-cell {
 	display: none;
 }
+.font9{
+	font-size: 8px;
+}
+.font11{
+	font-size: 8px;
+}
 
 @media (min-width: 992px) {
 	.hiddenable-cell {
 		display: table-cell !important;
 	}
+}
+.table>:not(caption)>*>*{
+	padding: .5rem .2rem !important;
 }
 
 .collapseContainingDiv td {

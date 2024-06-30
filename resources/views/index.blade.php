@@ -4,9 +4,10 @@
     <title>4000 واژه ضروری انگلیسی</title>
   </head>
 
+  @include('layout.header')
+
   <body>
 
-    @include('layout.header')
 
 
     <div class="pricing-header px-3 py-3 pt-5 pt-md-5 pb-md-4 mx-auto text-center">
