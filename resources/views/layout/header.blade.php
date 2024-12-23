@@ -7,6 +7,11 @@
         <div class="d-flex gap-3 h-100 align-items-center wo-head-menu">
 
 
+        
+        <a href="{{ route('phrasal.index') }}" class="d-none d-md-flex align-items-center text-decoration-none">
+                <button type="button" class="btn btn-success">افعال دوحرفی</button>
+            </a>
+
             <a href="{{ route('search') }}" class="d-none d-md-flex align-items-center text-decoration-none">
                 <button type="button" class="btn btn-warning">جستجوی واژه</button>
             </a>

@@ -43,7 +43,7 @@
         <span class="counter pull-right mt-2 mb-2"></span>
       </div>
 
-      <a href="{{ route('phrasal.add') }}" class="d-none d-md-flex align-items-left text-decoration-none">
+      <a href="{{ route('phrasal.add') }}" class="d-none d-md-flex justify-content-end text-decoration-none">
       <button type="submit" class="btn w-25 btn-success">افزودن</button>
       </a>
 
