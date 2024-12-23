@@ -66,6 +66,16 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->middleware('auth')
 
 
 
+
+Route::get('/phrasal-verbs', 'App\Http\Controllers\PhrasalController@index')->middleware('auth')->name('phrasal.index');
+Route::get('/phrasal-verbs/add', 'App\Http\Controllers\PhrasalController@add')->middleware('auth')->name('phrasal.add');
+Route::post('/phrasal', 'App\Http\Controllers\PhrasalController@store')->name('phrasal.store')->middleware('auth');
+Route::get('/phrasal/{id}/edit', 'App\Http\Controllers\PhrasalController@edit')->name('phrasal.formupdate')->middleware('auth');
+Route::patch('/phrasal/{id}/', 'App\Http\Controllers\PhrasalController@update')->name('phrasal.update')->middleware('auth');
+
+
+
+
 Route::get('/search', 'App\Http\Controllers\HomeController@search')->name('search');
 
 
