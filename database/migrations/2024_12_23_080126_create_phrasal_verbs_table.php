@@ -17,12 +17,15 @@ class CreatePhrasalVerbsTable extends Migration
             $table->id();
             $table->string('eng');
             $table->string('per');
-            $table->tinyInteger('unit');
+            $table->tinyInteger('chapter');
             $table->boolean('test_tik')->default(0);
             $table->boolean('fa_test_tik')->default(0);
             $table->string('description')->nullable();
             $table->string('example')->nullable();
             $table->string('example_trs')->nullable();
+            $table->string('description')->nullable();
+            $table->string('example2')->nullable();
+            $table->string('example_trs2')->nullable();
             $table->timestamps();
         });
     }

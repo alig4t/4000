@@ -60,7 +60,7 @@
               <option value="idr" {{($params['orderby'] == 'idr') ? 'selected' : ''}}>شماره زیاد به کم</option>
               <option value="eng" {{($params['orderby'] == 'eng') ? 'selected' : ''}}>الفبای انگلیسی</option>
               <option value="per" {{($params['orderby'] == 'per') ? 'selected' : ''}}>الفبای فارسی</option>
-              <option value="rand" {{($params['orderby'] == 'rand') ? 'selected' : ''}}>رندوم</option>
+              <!-- <option value="rand" {{($params['orderby'] == 'rand') ? 'selected' : ''}}>رندوم</option> -->
             </select>
           </div>
           <div class="form-group col-md-12 mt-4">

@@ -11,6 +11,16 @@ class PhrasalVerb extends Model
     protected $fillable = [
         'eng',
         'per',
-        'unit',
+        'chapter',
+        'example',
+        'example2',
+        'example_trs',
+        'example_trs2',
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withPivot('eng_check', 'per_check')->withTimestamps();
+    }
+
 }

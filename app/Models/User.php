@@ -52,5 +52,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Word::class)->withPivot('eng_check', 'per_check')->withTimestamps();
     }
 
+    public function phrasalVerbs()
+    {
+        return $this->belongsToMany(PhrasalVerb::class)->withPivot('eng_check', 'per_check')->withTimestamps();
+    }
 
 }

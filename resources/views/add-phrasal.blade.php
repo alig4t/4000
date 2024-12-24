@@ -38,15 +38,10 @@
             <div class="row mb-3">
               <label for="inputEmail3" class="col-sm-2 col-form-label">درس</label>
               <div class="col-sm-10">
-                <input type="number"  name="unit" class="form-control" id="input3">
+                <input type="number"  name="chapter" class="form-control" id="input3">
               </div>
             </div>
-            <div class="row mb-3">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">توضیحات انگلیسی</label>
-                <div class="col-sm-10">
-                  <input type="text"  name="description" class="form-control" dir="ltr">
-                </div>
-              </div>
+         
             <div class="row mb-3">
               <label for="inputPassword3" class="col-sm-2 col-form-label">مثال انگلیسی</label>
               <div class="col-sm-10">
@@ -59,6 +54,23 @@
                   <input type="text"  name="example_trs" class="form-control">
                 </div>
             </div>
+
+
+
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label"> مثال انگلیسی دوم</label>
+              <div class="col-sm-10">
+                <input type="text"  name="example2" class="form-control" dir="ltr">
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">مثال فارسی دوم</label>
+                <div class="col-sm-10">
+                  <input type="text"  name="example_trs2" class="form-control">
+                </div>
+            </div>
+
+
             
             <button type="submit" class="btn btn-primary">افزودن</button>
           </form>
