@@ -70,7 +70,7 @@
               </svg>  --}}
             </label>
               <a href="{{ route('phrasal.add') }}" class="d-none d-md-flex justify-content-end text-decoration-none">
-             <button type="submit" class="btn w-100 ms-5 btn-warning">افزودن عبارت جدید</button>
+             <button type="button" class="btn w-100 ms-5 btn-warning">افزودن عبارت جدید</button>
             </a>
             <button type="submit" class="btn btn-light change-params-btn flex-fill">اعمال</button>
 
