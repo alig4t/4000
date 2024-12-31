@@ -14,8 +14,14 @@ class PhrasalVerb extends Model
         'chapter',
         'example',
         'example2',
+        'example3',
+        'example4',
+        'example5',
         'example_trs',
         'example_trs2',
+        'example_trs3',
+        'example_trs4',
+        'example_trs5',
     ];
 
     public function users()

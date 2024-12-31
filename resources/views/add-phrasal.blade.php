@@ -28,6 +28,7 @@
                 <input type="text"  name="eng" class="form-control" id="input1">
               </div>
             </div>
+            
             <div class="row mb-3">
               <label for="inputEmail3" class="col-sm-2 col-form-label">معنی فارسی</label>
               <div class="col-sm-10">
@@ -70,7 +71,53 @@
                 </div>
             </div>
 
+            
 
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label"> مثال انگلیسی سوم</label>
+              <div class="col-sm-10">
+                <input type="text"  name="example3" class="form-control" dir="ltr">
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">مثال فارسی سوم</label>
+                <div class="col-sm-10">
+                  <input type="text"  name="example_trs3" class="form-control">
+                </div>
+            </div>
+
+
+
+            
+
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label"> مثال انگلیسی چهارم</label>
+              <div class="col-sm-10">
+                <input type="text"  name="example4" class="form-control" dir="ltr">
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">مثال فارسی چهارم</label>
+                <div class="col-sm-10">
+                  <input type="text"  name="example_trs4" class="form-control">
+                </div>
+            </div>
+
+
+            
+
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label"> مثال انگلیسی پنجم</label>
+              <div class="col-sm-10">
+                <input type="text"  name="example5" class="form-control" dir="ltr">
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">مثال فارسی پنجم</label>
+                <div class="col-sm-10">
+                  <input type="text"  name="example_trs5" class="form-control">
+                </div>
+            </div>
             
             <button type="submit" class="btn btn-primary">افزودن</button>
           </form>

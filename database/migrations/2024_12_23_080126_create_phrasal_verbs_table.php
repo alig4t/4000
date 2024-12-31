@@ -26,6 +26,12 @@ class CreatePhrasalVerbsTable extends Migration
             $table->string('description')->nullable();
             $table->string('example2')->nullable();
             $table->string('example_trs2')->nullable();
+            $table->string('example3')->nullable();
+            $table->string('example_trs3')->nullable();
+            $table->string('example4')->nullable();
+            $table->string('example_trs4')->nullable();
+            $table->string('example5')->nullable();
+            $table->string('example_trs5')->nullable();
             $table->timestamps();
         });
     }
