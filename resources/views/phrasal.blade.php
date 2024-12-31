@@ -190,10 +190,17 @@
 
                   <div class="mb-3 d-lg-none">
                   <div class="w-100 infobox">
-                    <span class="badge text-bg-warning">توضیح واژه :</span>
+                    <span class="badge text-bg-warning">
+
+                 <!-- مثال هایی از کاربرد
+                 {{$word->eng}}
+                 
+                 : -->
+                      
+                    </span>
                     <div class="wo-edit-btn">
                     
-                      <a href="/words/{{$word->id}}/edit" class="operate wo-edit-btn">
+                      <a href="/phrasal/{{$word->id}}/edit" class="operate wo-edit-btn">
                         <p> ویرایش واژه</p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wrench-adjustable" viewBox="0 0 16 16">
                           <path d="M16 4.5a4.492 4.492 0 0 1-1.703 3.526L13 5l2.959-1.11c.027.2.041.403.041.61Z"/>
@@ -203,9 +210,9 @@
                     </div>
                     
                   </div>
-                  <div class="section-box">
+                  <!-- <div class="section-box">
                       <p class="col-12 text-start" dir="ltr"> {{$word->description}}</p>
-                  </div>
+                  </div> -->
                   </div>
 
                   <div class="my-1">

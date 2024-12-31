@@ -9,7 +9,7 @@
 
         
         <a href="{{ route('phrasal.index') }}" class="d-none d-md-flex align-items-center text-decoration-none">
-                <button type="button" class="btn btn-success">افعال دوحرفی</button>
+                <button type="button" class="btn btn-success">افعال عبارتی</button>
             </a>
 
             <a href="{{ route('search') }}" class="d-none d-md-flex align-items-center text-decoration-none">
